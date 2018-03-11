@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tugas Form</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+ h2 {
+ color: black;
+ border-bottom: 2px solid black;
+ }
+</style>
+</head>
+<body style="background-color: grey">
+<h2>BIODATA SIMPLE</h2>
+<form action="tugas4php.php" method="post" enctype="multipart/form-data">
+    <table border="0">
+    <tr>
+        <td>Email</td>
+        <td><input type="text" name="email" size="25" maxlength="35" /></td>
+    </tr>
+    <tr><td><br></td></tr>   
+    <tr>
+        <td>Nama Lengkap    </td>
+        <td><input type="text" name="full_name" size="25"/></td>
+    </tr>
+    <tr>
+        <td>Jenis Kelamin</td>
+        <td><input type =radio name="kelamin" value=Laki-Laki> Laki-laki
+            <input type =radio name="kelamin" value=Perempuan> Perempuan</td>
+    </tr>
+    <tr>
+        <td>Alamat</td>
+        <td><textarea name="alamat"
+        cols="27" rows="3"></textarea></td>
+    </tr>
+    <tr>
+        <td>Pilih Jurusan</td>
+        <td><select name="Jurusan">
+            <option value=""> Pilih Jurusan
+            <option value=SI> Sistem Informasi
+            <option value=TIF> Teknik Informatika
+            <option value=PTI> Pendidikan Teknologi Informasi 
+            <option value=TEKKOM> Teknik Komputer
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td>Hobi</td>
+        <td>
+            <input type=checkbox name=hobi value=Musik>Musik
+            <input type=checkbox name=hobi value=Coding>Coding
+            <input type=checkbox name=hobi value=Touring>Touring</td>
+    </tr>
+    <tr>
+        <td>Perbarui Foto</td>
+        <td><input type="file" name="gambar" id="preview_gambar" /></td>
+        <td><img src="#" name="gambar" id="gambar_nodin" width="100"  alt="Preview Gambar" /></td>
+    </tr>
+    <tr>
+        <td></td>
+        <td><input type="submit" name="myBtn" value="Submit"></td>
+    </tr>
+    </table>
+</form>
+<script>
+function bacaGambar(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+ 
+        reader.onload = function (e) {
+           $('#gambar_nodin').attr('src', e.target.result);
+        }
+ 
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+
+$("#preview_gambar").change(function(){
+   bacaGambar(this);
+});
+</script>
+</body>
+</html>
